@@ -22,6 +22,30 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
+
+  let pragueElement = document.querySelector("#prague");
+  if (pragueElement) {
+    let pragueDateElement = pragueElement.querySelector(".date");
+    let pragueTimeElement = pragueElement.querySelector(".time");
+    let pragueTime = moment().tz("Europe/Prague");
+
+    pragueDateElement.innerHTML = moment().format("MMMM Do YYYY");
+    pragueTimeElement.innerHTML = pragueTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+
+  let sydneyElement = document.querySelector("#sydney");
+  if (sydneyElement) {
+    let sydneyDateElement = sydneyElement.querySelector(".date");
+    let sydneyTimeElement = sydneyElement.querySelector(".time");
+    let sydneyTime = moment().tz("Australia/Sydney");
+
+    sydneyDateElement.innerHTML = moment().format("MMMM Do YYYY");
+    sydneyTimeElement.innerHTML = sydneyTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 
 function updateCity(event) {
@@ -42,6 +66,7 @@ function updateCity(event) {
             "h:mm:ss"
           )} <small>${cityTime.format("A")}</small></div>
         </div>
+        <a href="/">All cities</a>
         `;
 }
 updateTime();
